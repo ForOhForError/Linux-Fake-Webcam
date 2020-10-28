@@ -1,6 +1,13 @@
-# Linux-Fake-Webcam
-Emulates webcam
-**Please forgive how much of a hackjob this is. I am not an experienced programmer, and I have almost no experience in machine learning/tensorflow. This was made as a test to see how effective it would be for live-streams**
+# Linux-Fake-Webcam (OBS Source Fork)
+
+Branch of Linux Fake Webcam for using as a Browser Source in OBS (Studio).
+
+Setup:
+* Set up a python 3 environment, and run ```python -m pip install -r requirements.txt``` to install all dependencies
+* Edit the variables ```REAL_CAMERA```, ```REAL_CAMERA_WIDTH```, and ```REAL_CAMERA_HEIGHT``` to the index and dimensions of your webcam.
+* run ```python greenscreen.py``` to launch the program. A preview window will appear showing the output to a greenscreen.
+* Add ```localhost:7777``` as a browser source in OBS. Set its dimensions to the same specified above.
+* To exit the program, focus the preview window and press the ```q``` key
 
 # Credits
 ## Ben Elder
@@ -19,15 +26,10 @@ Model file used
 https://github.com/fangfufu/Linux-Fake-Background-Webcam
 Guidance on getting v4l2loopback working
 
-## Lukas Vacula aka ldv8434 aka me
+## Lukas Vacula aka ldv8434
 The original get_mask function from rogierhofboer only worked under Tensorflow v1. I've ported it to v2, and made some other adjustments to the original script from Ben Elder.
 
 # Requirements (based on arch repo names)
-python-tensorflow-cuda 2.2.0-1
-tensorflow-cuda 2.2.0-1
-pyfakewebcam 0.1.0 (installed via pip)
+python-tensorflow
+python-opencv
 
-# usage
-Please refer to https://github.com/fangfufu/Linux-Fake-Background-Webcam for setting up the virtual webcam device
-You must edit greenscreen.py with the height and width of your real camera, as well as point to the real and fake cameras' locations. After that, it should be able to run on its own. 
-Also uses chroma.jpg as the image replacement by default. 
